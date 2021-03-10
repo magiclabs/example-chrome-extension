@@ -1,0 +1,20 @@
+{
+  "name": "Magic Chrome Extension",
+  "description": "Build a Chrome extension with Magic auth!",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": ["tabs"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "/icon-purple.png",
+      "48": "/icon-purple.png",
+      "128": "/icon-purple.png"
+    }
+  },
+  "icons": {
+    "16": "/icon-purple.png",
+    "48": "/icon-purple.png",
+    "128": "/icon-purple.png"
+  }
+}
