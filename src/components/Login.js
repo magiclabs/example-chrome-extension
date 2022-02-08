@@ -35,24 +35,35 @@ export default function Login() {
     setEmail(event.target.value);
   }, []);
 
+  const loginWithGoogle = async () => {
+    await magic.oauth.loginWithRedirect({
+      provider: 'google',
+      redirectURI: `${window.location.origin}/callback`,
+    });
+  };
+
   return (
-    <div className='container'>
+    <div className="container">
       {!isFullPage ? (
-        <button onClick={() => chrome.tabs.create({ url: 'index.html' })}>Login</button>
+        <button onClick={() => chrome.tabs.create({ url: 'index.html' })}>
+          Login
+        </button>
       ) : (
         <>
           <h1>Please sign up or login</h1>
           <input
-            type='email'
-            name='email'
-            required='required'
-            placeholder='Enter your email'
+            type="email"
+            name="email"
+            required="required"
+            placeholder="Enter your email"
             onChange={handleInputOnChange}
             disabled={isLoggingIn}
           />
           <button onClick={login} disabled={isLoggingIn}>
             Send
           </button>
+          <div>Or</div>
+          <button onClick={loginWithGoogle}>Login with Google</button>
         </>
       )}
     </div>
